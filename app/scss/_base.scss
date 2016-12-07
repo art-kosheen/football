@@ -51,7 +51,6 @@ a {
 
   img {
     width: 100%;
-    margin-bottom: 20px;
   }
 }
 
@@ -60,6 +59,10 @@ a {
   font-size: 16px;
   color: #505050;
   text-transform: uppercase;
+}
+
+.right__address__list {
+  margin-top: 20px;
 }
 
 .right__address__list__title {

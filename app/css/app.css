@@ -1555,14 +1555,16 @@ a {
   position: fixed;
   height: 100%; }
   .content__right img {
-    width: 100%;
-    margin-bottom: 20px; }
+    width: 100%; }
 
 .social__title {
   font-family: 'gothampro-black';
   font-size: 16px;
   color: #505050;
   text-transform: uppercase; }
+
+.right__address__list {
+  margin-top: 20px; }
 
 .right__address__list__title {
   font-family: 'gothampro-black';
