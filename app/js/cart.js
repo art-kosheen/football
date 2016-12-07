@@ -1,3 +1,8 @@
+// localStorage.setItem('key', string)
+// localStorage.getItem('key')
+//
+// object = JSON.parse(string)
+// string = JSON.stringify(object)
 $(document).ready(function () {
 
     var cart = {};
@@ -11,6 +16,9 @@ $(document).ready(function () {
     }));
 
     $(".size__btn").click(function () {
+
+        var temp_product_name = $(".tabs__controls-item.active .tabs__control-link").attr("data-name");
+        cart["data-name"]=temp_product_name;
 
         var temp_product_size = $(".tabs__item.active .content__item__size input[name=\"size\"]:checked").val();
         if (temp_product_size != undefined)
@@ -26,7 +34,6 @@ $(document).ready(function () {
         }
         else {
             console.log(cart);
-            // localStorage.getItem('itemsArray');
             localStorage.setItem('itemsCart', JSON.stringify(cart));
         }
     });
