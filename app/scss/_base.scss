@@ -19,8 +19,31 @@ a {
 }
 
 /* ---------------------------- */
+/*  COLORS
+/* ---------------------------- */
+
+.color__red {
+  background-color: red;
+}
+
+.color__green {
+  background-color: green;
+}
+
+.color__yellow {
+  background-color: yellow;
+}
+
+.color__black {
+  background-color: #000;
+}
+
+/* ---------------------------- */
 /*  CONTENT
 /* ---------------------------- */
+
+
+// right
 
 .content__right {
   position: fixed;
@@ -28,8 +51,72 @@ a {
 
   img {
     width: 100%;
+    margin-bottom: 20px;
   }
 }
+
+.social__title {
+  font-family: 'gothampro-black';
+  font-size: 16px;
+  color: #505050;
+  text-transform: uppercase;
+}
+
+.right__address__list__title {
+  font-family: 'gothampro-black';
+  font-size: 16px;
+  color: #505050;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.right__address__list__info {
+  font-family: 'gothampro';
+
+  & p {
+    margin-left: 6px;
+  }
+  & > img {
+    width: 13px;
+  }
+}
+
+.right__address__list__info * {
+  display: inline-block;
+}
+
+
+.social__list {
+  li {
+    display: inline-block;
+
+    a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+
+      & > img {
+        display: block;
+        transform: scale(1);
+        opacity: 1;
+        transition: transform 0.1s ease 0s, opacity 0.3s ease 0s;
+      }
+
+      & > img:last-child {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// left
 
 .content__left {
   padding-top: 50px;
@@ -74,9 +161,9 @@ a {
   display: inline-block;
   width: 10%;
   padding: 5px 0;
+  color: #fff;
 
   &:hover {
-    background-color: $orange;
     color: #fff;
   }
 }
@@ -86,13 +173,12 @@ a {
 /* ---------------------------- */
 
 .tabs__control {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .tabs__controls-item {
   display: inline-block;
-  width: 150px;
-  font-family: 'gothampro';
+  width: 130px;
   font-size: 16px;
   text-align: center;
   color: #FF6019;
@@ -109,7 +195,7 @@ a {
 
 .tabs__control-link {
   display: block;
-  padding: 10px 0;
+  padding: 5px 0;
   text-decoration: none;
   color: inherit;
 
