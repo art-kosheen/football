@@ -19,26 +19,6 @@ a {
 }
 
 /* ---------------------------- */
-/*  COLORS
-/* ---------------------------- */
-
-.color__red {
-  background-color: red;
-}
-
-.color__green {
-  background-color: green;
-}
-
-.color__yellow {
-  background-color: yellow;
-}
-
-.color__black {
-  background-color: black;
-}
-
-/* ---------------------------- */
 /*  CONTENT
 /* ---------------------------- */
 
@@ -153,6 +133,26 @@ a {
   }
 }
 
+/* ---------------------------- */
+/*  COLORS
+/* ---------------------------- */
+
+.color__red {
+  background-color: red;
+}
+
+.color__green {
+  background-color: green;
+}
+
+.color__yellow {
+  background-color: yellow;
+}
+
+.color__black {
+  background-color: black;
+}
+
 .content__color {
   margin-top: 30px;
 }
@@ -165,10 +165,17 @@ a {
   padding: 5px 0;
   color: #fff;
 
+  &.active {
+    background: url(../img/done.png) no-repeat center;
+    background-size: contain;
+  }
+
   &:hover {
     color: #fff;
   }
 }
+
+
 
 /* ---------------------------- */
 /*  TABS

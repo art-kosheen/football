@@ -5,9 +5,10 @@ $(document).ready(function () {
     var temp_product_name = $(".tabs__controls-item.active .tabs__control-link").attr("data-name");
     cart["data-name"]=temp_product_name;
 
-    $(".color__btn").click(function () {
+    $(".color__btn").on('click', (function (e) {
+        e.preventDefault();
         $(this).addClass("active").siblings().removeClass("active");
-    });
+    }));
 
     $(".size__btn").click(function () {
 
