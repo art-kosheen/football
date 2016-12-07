@@ -12,6 +12,8 @@ $(document).ready(function () {
         $(this).addClass("active").siblings().removeClass("active");
     }));
 
+    var productArray = [];
+
     $(".size__btn").on("click", (function (e) {
         e.preventDefault();
 
@@ -33,8 +35,8 @@ $(document).ready(function () {
         }
         else {
             var cart = tempCart;
-            tempCart={};
-            console.log(cart);
+            tempCart = {};
+
             $(".tabs__item.active .content__item__size input[name=\"size\"]:checked").each(function () {
                 $(this).prop('checked', false);
             });
@@ -42,27 +44,33 @@ $(document).ready(function () {
             //
             $(".size__btn").text("Добавлено!");
 
-            var json=localStorage.getItem('itemsCart');
+            Storage.prototype.setObj = function (key, value) {
+                this.setItem(key, JSON.stringify(value));
+            };
 
-            if(json==null) {
-                localStorage.setItem('itemsCart', JSON.stringify(cart));
-            }
-            else{
-                var result=new Array();
-                result[0].push(JSON.parse(json));
-                var new_array = result.concat(cart)
-                //result.push(cart);
-                localStorage.setItem('itemsCart', JSON.stringify(new_array));
+            Storage.prototype.getObj = function (key) {
+                var value = this.getItem(key);
+                return value && JSON.parse(value);
+            };
 
-//                 //
-//                 var jsonStr = '{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"}]}';
-//
-//                 var obj = JSON.parse(jsonStr);
-//                 obj['theTeam'].push({"teamId":"4","status":"pending"});
-//                 jsonStr = JSON.stringify(obj);
-// // "{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"},{"teamId":"4","status":"pending"}]}"
-//                 //
+            console.log(cart);
+            var productJSON = {
+                "name": temp_product_name,
+                "size": temp_product_size,
+                "color": temp_product_color
+            };
+
+
+            if (localStorage.getObj('product') !== null) {
+                productArray = localStorage.getObj('product');
+                productArray.push(productJSON);
+                localStorage.setObj('product', productArray);
             }
+            else {
+                productArray.push(productJSON);
+                localStorage.setObj('product', productArray);
+            }
+
         }
     }));
 
