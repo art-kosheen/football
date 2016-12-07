@@ -33,17 +33,36 @@ $(document).ready(function () {
         }
         else {
             var cart = tempCart;
-            tempCart = {};
+            tempCart={};
             console.log(cart);
             $(".tabs__item.active .content__item__size input[name=\"size\"]:checked").each(function () {
                 $(this).prop('checked', false);
             });
             $(".color__btn").removeClass("active");
             //
-
-
             $(".size__btn").text("Добавлено!");
-            localStorage.setItem('itemsCart', JSON.stringify(cart));
+
+            var json=localStorage.getItem('itemsCart');
+
+            if(json==null) {
+                localStorage.setItem('itemsCart', JSON.stringify(cart));
+            }
+            else{
+                var result=new Array();
+                result[0].push(JSON.parse(json));
+                var new_array = result.concat(cart)
+                //result.push(cart);
+                localStorage.setItem('itemsCart', JSON.stringify(new_array));
+
+//                 //
+//                 var jsonStr = '{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"}]}';
+//
+//                 var obj = JSON.parse(jsonStr);
+//                 obj['theTeam'].push({"teamId":"4","status":"pending"});
+//                 jsonStr = JSON.stringify(obj);
+// // "{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"},{"teamId":"4","status":"pending"}]}"
+//                 //
+            }
         }
     }));
 
