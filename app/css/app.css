@@ -1613,7 +1613,7 @@ a {
   margin-top: 10px;
   color: #fff;
   border: 1px solid #FF6019; }
-  .size__btn:hover {
+  .size__btn:hover, .size__btn:focus, .size__btn:active {
     color: #FF6019;
     background-color: #fff; }
 
