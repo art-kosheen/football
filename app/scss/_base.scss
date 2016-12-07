@@ -127,11 +127,15 @@ a {
   color: #fff;
   border: 1px solid $orange;
 
-  &:hover,
-  &:focus,
-  &:active {
+  &:hover {
     color: $orange;
     background-color: #fff;
+  }
+
+  &:focus,
+  &:active {
+    color: #fff;
+    background-color: $orange;
   }
 }
 

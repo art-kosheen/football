@@ -1613,9 +1613,12 @@ a {
   margin-top: 10px;
   color: #fff;
   border: 1px solid #FF6019; }
-  .size__btn:hover, .size__btn:focus, .size__btn:active {
+  .size__btn:hover {
     color: #FF6019;
     background-color: #fff; }
+  .size__btn:focus, .size__btn:active {
+    color: #fff;
+    background-color: #FF6019; }
 
 /* ---------------------------- */
 /*  COLORS

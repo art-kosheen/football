@@ -3,9 +3,14 @@
 //
 // object = JSON.parse(string)
 // string = JSON.stringify(object)
+
 $(document).ready(function () {
 
     var tempCart = {};
+
+    // window.onbeforeunload = function(e) {
+    //     window.localStorage.removeItem("product");
+    // };
 
     $(".color__btn").on('click', (function (e) {
         e.preventDefault();
@@ -41,8 +46,11 @@ $(document).ready(function () {
                 $(this).prop('checked', false);
             });
             $(".color__btn").removeClass("active");
-            //
-            $(".size__btn").text("Добавлено!");
+
+            $(".size__btn").text("Добавлено!").mouseleave(function () {
+                $(this).text("В корзину").off();
+
+            });
 
             Storage.prototype.setObj = function (key, value) {
                 this.setItem(key, JSON.stringify(value));
@@ -60,7 +68,6 @@ $(document).ready(function () {
                 "color": temp_product_color
             };
 
-
             if (localStorage.getObj('product') !== null) {
                 productArray = localStorage.getObj('product');
                 productArray.push(productJSON);
@@ -70,9 +77,9 @@ $(document).ready(function () {
                 productArray.push(productJSON);
                 localStorage.setObj('product', productArray);
             }
-
         }
     }));
+
 
 });
 
